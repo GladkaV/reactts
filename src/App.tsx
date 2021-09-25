@@ -1,6 +1,6 @@
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
 import Posts from "./components/Posts";
-import {BrowserRouter as Router, Route, Link,} from 'react-router-dom';
-import {RouteComponentProps,} from 'react-router';
 import PostDetails from "./components/PostDetails";
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
                 <Link to={'/posts'}>posts</Link>
 
                 <Route exact path={'/posts'} render={() => <Posts/>}/>
-                <Route path={'/posts/:id'} render={(props:RouteComponentProps) => <PostDetails {...props}/>}/>
+                <Route path={'/posts/:id'} component={PostDetails}/>
             </Router>
         </div>
     )
