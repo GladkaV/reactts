@@ -1,20 +1,16 @@
 import {IPost} from "../models/IPost";
-import {FC, MouseEvent} from "react";
+import {FC} from "react";
 import {Link} from 'react-router-dom';
 
 const Post: FC<IPost> = (props: IPost) => {
-    let {id, title, body} = props;
-
-    const onClick = (e: MouseEvent<HTMLButtonElement>):void => {
-        console.log(e.pageX)
-    }
+    let {id, title, body, userId} = props;
 
     return (
         <div>
             <h2>{title}</h2>
             <p>{body}</p>
 
-            <Link to={'/posts/' + id}>details</Link>
+            <Link to={{pathname: '/posts/' + id, state: {id, userId, title, body}}}>details</Link>
         </div>
     )
 }

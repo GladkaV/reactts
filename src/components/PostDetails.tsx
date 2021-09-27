@@ -1,7 +1,10 @@
-import {RouteComponentProps} from "react-router";
+import {useLocation} from "react-router-dom";
 
-const PostDetails = (props:RouteComponentProps) => {
-    console.log(props)
+import {IPost} from "../models/IPost";
+
+const PostDetails = () => {
+    let {state} = useLocation<IPost>();
+    console.log(state)
 
     return (
         <div>
